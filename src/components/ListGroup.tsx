@@ -44,3 +44,5 @@ export default ListGroup;
 //braces exception in jsx elements only html element or react comp
 // also use a function for this or a const diff msg can be passed if we use a fucntion
 //props are input components
+//props are like function arguments(immutable)read only
+//states are like local variables(mutable)
