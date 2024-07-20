@@ -1,9 +1,14 @@
-import { MouseEvent } from "react";
+//import { MouseEvent } from "react";
+import { useState } from "react";
 import { Fragment } from "react/jsx-runtime";
+
+//hook allows to tap in built in features
+
 //event handler
-const handleClick = (event: MouseEvent) => console.log(event);
+//const handleClick = (event: MouseEvent) => console.log(event);
 function ListGroup() {
   const items = ["Lahore", "Karachi", "Quetta", "Islamabad", "Multan"]; //method map
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   return (
     <Fragment>
       <h1>List</h1>
@@ -11,7 +16,17 @@ function ListGroup() {
       {items.length === 0 && <p>no item found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
-          <li className="list-group-item" key={item} onClick={handleClick}>
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active "
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {item}
           </li>
         ))}
